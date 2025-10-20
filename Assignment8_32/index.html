@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Row Counter</title>
+        
+    </head>
+    <body>
+    
+        <div class="container">
+            <h1>ROW COUNTER</h1>
+            <div id="count">0</div>
+            <button id="increment">INCREMENT</button>
+            <button id="save" >SAVE</button><br>
+            <p>Previous Entries:<span id="displayEntries"></span></p>
+            
+        </div>
+        <script>
+            let count = 0;
+            let entries = [];
+            let total_count = document.getElementById('count');
+            let displayEntries = document.getElementById('displayEntries');
+            
+
+            function increments(){
+                count++;
+                total_count.textContent = count;
+
+            }
+
+
+            function saveEntries(){
+                if(count!==0){
+                    entries.push(count);
+                    displayEntries.textContent = entries.join('-')+' -';
+                    count = 0;
+                    total_count.textContent = count;
+                }
+                
+            }
+
+            
+            document.getElementById("increment").addEventListener("click",increments);
+            document.getElementById("save").addEventListener("click",saveEntries);
+        </script>
+
+
+    </body>
+</html>
