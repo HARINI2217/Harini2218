@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Row Counter</title>
+        <style>
+            body{
+            background-image:url(bg8.png);
+            width: auto;
+            height: auto;
+            background-size:cover;
+            background-repeat: no-repeat;
+    
+            }
+
+
+            .container{
+                
+                text-align: center;
+                width: 400px;
+                padding: 40px;
+                margin:auto;
+            }
+
+            h1{
+                text-align:center;
+                font-weight: bold;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            }
+
+            p{
+                font-weight: 500;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            #count{
+                font-size: 3rem;
+                font-weight: bolder;
+                margin: 20px;
+            }
+
+
+            button{
+                padding:12px;
+                border:none;
+                border-radius:8px;
+
+            }
+
+            #increment{
+                background-color: crimson;
+                color:white;
+                
+
+            }
+
+            #save{
+                background-color: green;
+                color:white;
+                
+            }
+
+
+        </style>>
+    </head>
+    <body>
+    
+        <div class="container">
+            <h1>ROW COUNTER</h1>
+            <div id="count">0</div>
+            <button id="increment">INCREMENT</button>
+            <button id="save" >SAVE</button><br>
+            <p>Previous Entries:<span id="displayEntries"></span></p>
+            
+        </div>
+        <script>
+            let count = 0;
+            let entries = [];
+            let total_count = document.getElementById('count');
+            let displayEntries = document.getElementById('displayEntries');
+            
+
+            function increments(){
+                count++;
+                total_count.textContent = count;
+
+            }
+
+
+            function saveEntries(){
+                if(count!==0){
+                    entries.push(count);
+                    displayEntries.textContent = entries.join('-')+' -';
+                    count = 0;
+                    total_count.textContent = count;
+                }
+                
+            }
+
+            
+            document.getElementById("increment").addEventListener("click",increments);
+            document.getElementById("save").addEventListener("click",saveEntries);
+        </script>
+
+
+    </body>
+</html>
